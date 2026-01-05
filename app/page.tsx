@@ -48,7 +48,7 @@ export default function Portfolio() {
     name: "Tochukwu Okeakpu",
     title: "React & Next.js Developer",
     email: "okeakputochukwu9@gmail.com",
-    github: "https://github.com/Toch-man",
+    github: "Toch-man",
     bio: "Passionate React developer specializing in building scalable web applications with modern technologies. I transform complex problems into elegant, user-friendly solutions. Experienced in React, Next.js, TypeScript, and decentralised application development with a focus on clean code and exceptional user experiences.",
   };
 
@@ -67,7 +67,7 @@ export default function Portfolio() {
         "django",
         "JWT",
       ],
-      liveLink: "https://borderless-admin.vercel.app/",
+      liveLink: "https://admin-frontend-liart-nine.vercel.app/",
       githubLink:
         "https://github.com/B-rder-ess-Dev-Hub-UNN/admin-frontend.git",
       featured: true,
@@ -89,7 +89,7 @@ export default function Portfolio() {
         "An educative site that educate newbies about blockchain and introduces them into the scroll layer 2 network ** must connect add scroll  network to the connected wallet to use**",
       role: "",
       tech: ["React", "TypeScript", "tailwindcss", "Scaffold-eth", "Solidity"],
-      liveLink: "https://scroll-academy-nextjs.vercel.app/",
+      liveLink: "https://agric-tech-v85t.vercel.app/",
       githubLink: "https://github.com/Toch-man/scroll_academy.git",
       featured: false,
     },
