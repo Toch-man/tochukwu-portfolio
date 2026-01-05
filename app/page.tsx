@@ -48,7 +48,7 @@ export default function Portfolio() {
     name: "Tochukwu Okeakpu",
     title: "React & Next.js Developer",
     email: "okeakputochukwu9@gmail.com",
-    github: "yourgithub",
+    github: "https://github.com/Toch-man",
     bio: "Passionate React developer specializing in building scalable web applications with modern technologies. I transform complex problems into elegant, user-friendly solutions. Experienced in React, Next.js, TypeScript, and decentralised application development with a focus on clean code and exceptional user experiences.",
   };
 
@@ -73,8 +73,7 @@ export default function Portfolio() {
       featured: true,
     },
     {
-      title:
-        "Blockchain based Farm- store tracking system with qr code support",
+      title: "Blockchain based Farm-store tracking system with qr code support",
       description:
         "Full-stack Web3-based platform for managing a decentralized farm store system. The application enables transparent tracking of farm products and store operations through blockchain-backed data, ensuring trust, immutability, and real-time state updates without relying on traditional backend APIs. ** need to connect a decentralised wallet first to use i.e metamask etc. **",
       role: "Full-Stack Web3 Developer built the smart contract and frontend, integrating on-chain functionality using WAGMI.",
