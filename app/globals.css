@@ -1,4 +1,4 @@
-@import "tailwindcss/preflight";
+@import "tailwindcss";
 
 * {
   margin: 0;
@@ -19,6 +19,7 @@ body {
   overflow-x: hidden;
 }
 
+/* Custom scrollbar for modern browsers */
 ::-webkit-scrollbar {
   width: 10px;
 }
