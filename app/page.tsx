@@ -81,8 +81,8 @@ export default function Portfolio() {
         "A tutorial site with tutorial videos on web development courses",
       role: "Built the frontend of this project using Next.js, TypeScript and Tailwind CSS",
       tech: ["Next.js", "TypeScript", "Tailwind CSS"],
-      liveLink: "",
-      githubLink: "",
+      liveLink: "https://kizito-code-frontend.vercel.app/",
+      githubLink: "https://github.com/Toch-man/kizito_code_frontend.git",
       videoUrl: "https://www.youtube.com/embed/IIuTm3_VpSg",
       featured: true,
     },
@@ -120,6 +120,7 @@ export default function Portfolio() {
       featured: false,
     },
   ];
+
   const skills: Skills = {
     Frontend: [
       "React",
@@ -253,7 +254,7 @@ export default function Portfolio() {
 
       {/* Projects Section */}
       <section id="projects" className="py-15 px-6">
-        <div className="min-w-screen mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4">Featured Projects</h2>
             <p className="text-slate-400 text-lg">
@@ -261,17 +262,15 @@ export default function Portfolio() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {projects.map((project, index) => (
               <div
                 key={index}
-                className={`bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:border-blue-500/50 transition-all duration-300 hover:transform hover:scale-105 ${
-                  project.featured ? "md:col-span-2" : ""
-                }`}
+                className="bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:border-blue-500/50 transition-all duration-300 hover:transform hover:scale-105 flex flex-col"
               >
-                {/* Video Demo Section */}
+                {/* Video Demo Section - Smaller */}
                 {project.videoUrl && (
-                  <div className="mb-6 relative group">
+                  <div className="mb-4 relative group">
                     {activeVideo === project.title ? (
                       <div className="aspect-video bg-slate-800 rounded-lg overflow-hidden">
                         <iframe
@@ -288,16 +287,16 @@ export default function Portfolio() {
                         className="w-full aspect-video bg-slate-800 rounded-lg flex items-center justify-center hover:bg-slate-700 transition-colors"
                       >
                         <div className="text-center">
-                          <div className="bg-blue-500/20 rounded-full p-4 inline-block mb-2 group-hover:bg-blue-500/30 transition-colors">
+                          <div className="bg-blue-500/20 rounded-full p-3 inline-block mb-2 group-hover:bg-blue-500/30 transition-colors">
                             <svg
-                              className="w-8 h-8 text-blue-400"
+                              className="w-6 h-6 text-blue-400"
                               fill="currentColor"
                               viewBox="0 0 24 24"
                             >
                               <path d="M8 5v14l11-7z" />
                             </svg>
                           </div>
-                          <p className="text-slate-300 font-semibold">
+                          <p className="text-slate-300 text-sm font-semibold">
                             Watch Demo
                           </p>
                         </div>
@@ -306,12 +305,10 @@ export default function Portfolio() {
                   </div>
                 )}
 
-                <div className="mb-4">
-                  <Code2 size={32} className="text-blue-400" />
-                </div>
-                <div className="flex flex-row gap-2">
-                  <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
-                  <div className="flex gap-2 mr-3">
+                {/* Project Header */}
+                <div className="flex items-start justify-between mb-3">
+                  <Code2 size={28} className="text-blue-400 shrink-0" />
+                  <div className="flex gap-2">
                     {project.liveLink && (
                       <a
                         href={project.liveLink}
@@ -337,21 +334,23 @@ export default function Portfolio() {
                   </div>
                 </div>
 
-                <p className="text-slate-400 mb-4 leading-relaxed">
+                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+
+                <p className="text-slate-400 text-sm mb-3 leading-relaxed">
                   {project.description}
                 </p>
 
                 {project.role && (
-                  <p className="text-slate-500 text-sm mb-4 italic">
+                  <p className="text-slate-500 text-xs mb-3 italic">
                     {project.role}
                   </p>
                 )}
 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mt-auto">
                   {project.tech.map((tech, i) => (
                     <span
                       key={i}
-                      className="bg-blue-500/10 border border-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-sm"
+                      className="bg-blue-500/10 border border-blue-500/20 text-blue-400 px-2 py-1 rounded-full text-xs"
                     >
                       {tech}
                     </span>
@@ -365,7 +364,7 @@ export default function Portfolio() {
 
       {/* Skills Section */}
       <section id="skills" className="py-20 px-6 mt-6 bg-slate-900/30">
-        <div className="min-w-screen mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4">Technical Skills</h2>
             <p className="text-slate-400 text-lg">Technologies I work with</p>
@@ -398,7 +397,7 @@ export default function Portfolio() {
 
       {/* Contact Section */}
       <section id="contact" className="py-20 px-6">
-        <div className="min-w-screen mx-auto text-center">
+        <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">Let&apos;s Work Together</h2>
           <p className="text-slate-400 text-lg mb-12">
             I&apos;m always open to discussing new projects, creative ideas, or
