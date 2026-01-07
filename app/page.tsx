@@ -397,7 +397,7 @@ export default function Portfolio() {
 
       {/* Contact Section */}
       <section id="contact" className="py-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="min-w-screen mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">Let&apos;s Work Together</h2>
           <p className="text-slate-400 text-lg mb-12">
             I&apos;m always open to discussing new projects, creative ideas, or
