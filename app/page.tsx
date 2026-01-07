@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   Github,
   Mail,
@@ -28,6 +28,7 @@ interface Project {
   tech: string[];
   liveLink: string;
   githubLink: string;
+  videoUrl?: string;
   featured: boolean;
 }
 
@@ -39,6 +40,7 @@ export default function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [activeSection, setActiveSection] = useState<string>("home");
   const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
   useEffect(() => {
     setIsVisible(true);
@@ -60,16 +62,28 @@ export default function Portfolio() {
       role: "Frontend Developer — developed the administrative dashboard UI, integrated backend APIs for real-time data visualization and user management, and applied modern React patterns for scalability and maintainability.",
       tech: [
         "React",
-        "Typescrpt",
-        "framer motion",
-        "Tailindcss",
-        "python",
-        "django",
+        "TypeScript",
+        "Framer Motion",
+        "Tailwind CSS",
+        "Python",
+        "Django",
         "JWT",
       ],
       liveLink: "https://admin-frontend-liart-nine.vercel.app/",
       githubLink:
         "https://github.com/B-rder-ess-Dev-Hub-UNN/admin-frontend.git",
+      videoUrl: "https://www.youtube.com/embed/FIUUvlfIG7I",
+      featured: true,
+    },
+    {
+      title: "kizito_codes",
+      description:
+        "A tutorial site with tutorial videos on web development courses",
+      role: "Built the frontend of this project using Next.js, TypeScript and Tailwind CSS",
+      tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+      liveLink: "",
+      githubLink: "",
+      videoUrl: "https://www.youtube.com/embed/IIuTm3_VpSg",
       featured: true,
     },
     {
@@ -80,32 +94,32 @@ export default function Portfolio() {
       tech: ["React", "TypeScript", "Wagmi", "Tailwind CSS", "Solidity"],
       liveLink: "https://agric-tech-v85t.vercel.app/",
       githubLink: "https://github.com/Toch-man/Agric_Tech.git",
+      videoUrl: "https://www.youtube.com/embed/xgAP-yAO6CE",
       featured: true,
     },
-
     {
       title: "Scroll Academy",
       description:
-        "An educative site that educate newbies about blockchain and introduces them into the scroll layer 2 network ** must connect add scroll  network to the connected wallet to use**",
-      role: "",
-      tech: ["React", "TypeScript", "tailwindcss", "Scaffold-eth", "Solidity"],
-      liveLink: "https://agric-tech-v85t.vercel.app/",
+        "An educative site that educates newbies about blockchain and introduces them into the scroll layer 2 network ** must connect add scroll network to the connected wallet to use**",
+      role: "Full-Stack Developer",
+      tech: ["React", "TypeScript", "Tailwind CSS", "Scaffold-eth", "Solidity"],
+      liveLink: "https://scroll-academy-nextjs.vercel.app/",
       githubLink: "https://github.com/Toch-man/scroll_academy.git",
+      videoUrl: "https://www.youtube.com/embed/n5p4TyHMlMQ",
       featured: false,
     },
     {
       title: "E-voting site",
       description:
-        "Modern e-commerce solution with payment integration, inventory management, and responsive design. Implemented cart functionality and order tracking.",
-      role: " Built the frontend of a voting site usign local storage to store data fromt the application",
-      tech: ["React", "css"],
+        "Modern e-voting solution with secure authentication and real-time vote tracking. Implemented local storage for data persistence and responsive design for all devices.",
+      role: "Frontend Developer - Built the frontend of a voting site using local storage to store data from the application",
+      tech: ["React", "CSS"],
       liveLink: "https://e-voting-site.vercel.app/",
       githubLink: "https://github.com/Toch-man/E-voting-site.git",
+      videoUrl: "https://www.youtube.com/embed/M5-HH1lVSwM",
       featured: false,
     },
   ];
-
-  // EDIT YOUR SKILLS HERE
   const skills: Skills = {
     Frontend: [
       "React",
@@ -117,11 +131,10 @@ export default function Portfolio() {
       "HTML5/CSS3",
     ],
     Blockchain: ["Solidity", "Wagmi", "Scaffold_eth"],
-
     "Tools & Others": [
       "Git/GitHub",
       "VS Code",
-      "hardhat",
+      "Hardhat",
       "Vercel",
       "Responsive Design",
     ],
@@ -137,7 +150,7 @@ export default function Portfolio() {
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-slate-950 via-slate-900 to-slate-950 text-white ">
+    <div className="min-h-screen bg-linear-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
       {/* Navigation */}
       <nav className="fixed top-3 w-full bg-slate-950/80 backdrop-blur-lg z-50 border-b border-slate-800">
         <div className="max-w-6xl mx-auto">
@@ -191,7 +204,7 @@ export default function Portfolio() {
       {/* Hero Section */}
       <section
         id="home"
-        className={`min-h-screen w-full flex  gap-3 items-center justify-center px-6 pt-20 transition-all duration-1000 ${
+        className={`min-h-screen w-full flex gap-3 items-center justify-center px-6 pt-20 transition-all duration-1000 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
@@ -256,36 +269,84 @@ export default function Portfolio() {
                   project.featured ? "md:col-span-2" : ""
                 }`}
               >
-                <div className=" mb-4">
+                {/* Video Demo Section */}
+                {project.videoUrl && (
+                  <div className="mb-6 relative group">
+                    {activeVideo === project.title ? (
+                      <div className="aspect-video bg-slate-800 rounded-lg overflow-hidden">
+                        <iframe
+                          className="w-full h-full"
+                          src={project.videoUrl}
+                          title={`${project.title} Demo`}
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        />
+                      </div>
+                    ) : (
+                      <button
+                        onClick={() => setActiveVideo(project.title)}
+                        className="w-full aspect-video bg-slate-800 rounded-lg flex items-center justify-center hover:bg-slate-700 transition-colors"
+                      >
+                        <div className="text-center">
+                          <div className="bg-blue-500/20 rounded-full p-4 inline-block mb-2 group-hover:bg-blue-500/30 transition-colors">
+                            <svg
+                              className="w-8 h-8 text-blue-400"
+                              fill="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path d="M8 5v14l11-7z" />
+                            </svg>
+                          </div>
+                          <p className="text-slate-300 font-semibold">
+                            Watch Demo
+                          </p>
+                        </div>
+                      </button>
+                    )}
+                  </div>
+                )}
+
+                <div className="mb-4">
                   <Code2 size={32} className="text-blue-400" />
                 </div>
                 <div className="flex flex-row gap-2">
-                  <h3 className="text-2xl font-bold mb-3">{project.title}</h3>{" "}
+                  <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
                   <div className="flex gap-2 mr-3">
-                    <a
-                      href={project.liveLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-slate-400 hover:text-blue-400 transition-colors"
-                      aria-label="View live site"
-                    >
-                      <ExternalLink size={20} />
-                    </a>
-                    <a
-                      href={project.githubLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-slate-400 hover:text-blue-400 transition-colors"
-                      aria-label="View on GitHub"
-                    >
-                      <Github size={20} />
-                    </a>
+                    {project.liveLink && (
+                      <a
+                        href={project.liveLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-slate-400 hover:text-blue-400 transition-colors"
+                        aria-label="View live site"
+                      >
+                        <ExternalLink size={20} />
+                      </a>
+                    )}
+                    {project.githubLink && (
+                      <a
+                        href={project.githubLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-slate-400 hover:text-blue-400 transition-colors"
+                        aria-label="View on GitHub"
+                      >
+                        <Github size={20} />
+                      </a>
+                    )}
                   </div>
                 </div>
 
                 <p className="text-slate-400 mb-4 leading-relaxed">
                   {project.description}
                 </p>
+
+                {project.role && (
+                  <p className="text-slate-500 text-sm mb-4 italic">
+                    {project.role}
+                  </p>
+                )}
+
                 <div className="flex flex-wrap gap-2">
                   {project.tech.map((tech, i) => (
                     <span
@@ -306,7 +367,7 @@ export default function Portfolio() {
       <section id="skills" className="py-20 px-6 mt-6 bg-slate-900/30">
         <div className="min-w-screen mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl  font-bold mb-4">Technical Skills</h2>
+            <h2 className="text-3xl font-bold mb-4">Technical Skills</h2>
             <p className="text-slate-400 text-lg">Technologies I work with</p>
           </div>
 
